@@ -263,6 +263,7 @@ if __name__ == "__main__":
     state = torch.randn(256, 11).to(device)  # Batch, state_dim
     model = Diffusion(loss_type="l2", obs_dim=11, act_dim=2, hidden_dim=256, T=100, device=device)
     result = model(state)  # Sample result
+    print(f"Sampled actions: {result.shape}")
     
     loss = model.loss(x, state)
     
